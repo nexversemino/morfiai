@@ -1,0 +1,83 @@
+/* Editable local enhancement: black video pixels blend into the page. */
+.nex-dragon-video{display:block;width:100%;height:100%;object-fit:contain;object-position:center;mix-blend-mode:screen;background:transparent;pointer-events:none;mask-image:linear-gradient(to right,transparent 0%,#000 3%,#000 97%,transparent 100%);-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 3%,#000 97%,transparent 100%)}
+/* Blend the full parallax layer, so the original black rectangle disappears. */
+.nex-dragon-video-layer{mix-blend-mode:screen}
+@media(prefers-reduced-motion:reduce){.nex-dragon-video-layer{transform:none!important}}
+
+.nex-dragon-video-stage,.nex-dragon-video-section{mix-blend-mode:screen}
+.nex-dragon-video{mask-image:radial-gradient(ellipse 70% 70% at center,#000 55%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at center,#000 55%,transparent 100%)}
+
+/* Full-screen hero: video spans the entire opening section, text overlays it. */
+.nex-dragon-video-section{display:block!important;position:relative;min-height:100svh;overflow:hidden;isolation:isolate}
+.nex-dragon-video-section>.grid-bg{position:relative;z-index:2;width:46%;min-height:100svh;background-color:transparent;background-image:linear-gradient(90deg,rgba(0,0,0,.9),rgba(0,0,0,.5) 65%,transparent);pointer-events:none}
+.nex-dragon-video-section>.grid-bg a{pointer-events:auto}
+.nex-dragon-video-stage{position:absolute!important;inset:0!important;width:100%;height:100%;min-height:0!important;z-index:1;pointer-events:none;overflow:visible!important}
+.nex-dragon-video-layer{position:absolute!important;inset:0!important}
+.nex-dragon-video{width:100%;height:100%;object-fit:contain;object-position:center;mask-image:radial-gradient(ellipse 75% 80% at center,#000 65%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 75% 80% at center,#000 65%,transparent 100%)}
+
+/* Brand: MORFIAI logo + glowing wordmark in one row (restored) */
+.morfiai-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none}
+.morfiai-brand-symbol{display:block;width:68px;height:68px;flex:none}
+.morfiai-brand-word{font-size:26px;font-weight:500;letter-spacing:.22em;color:transparent;background:linear-gradient(90deg,#37f6ff 0%,#b95cff 25%,#ff2fd0 50%,#ff9f45 75%,#ffe000 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:morfiai-spectrum 6s linear infinite}
+.nex-dragon-video-section>header{position:absolute!important;top:0;left:0;right:0;z-index:30}
+.nex-dragon-video-section>header .grid-bg{background-image:none!important}
+.nex-dragon-video-section .grid-bg{display:flex;flex-direction:column}
+.nex-dragon-video-section .grid-bg h1{margin-bottom:28px}
+.nex-dragon-video-section .grid-bg .morfiai-hero-description{max-width:44rem!important}
+@media(max-width:1024px){.morfiai-brand-symbol{width:56px;height:56px}.morfiai-brand-word{font-size:22px}}
+@media(max-width:640px){.morfiai-brand{gap:6px}.morfiai-brand-symbol{width:50px;height:50px}.morfiai-brand-word{font-size:23px;letter-spacing:.09em}header>div{padding-left:14px!important;padding-right:14px!important}}
+@media(prefers-reduced-motion:reduce){.morfiai-brand-word{animation:none}.morfiai-brand-symbol{transition:none}.morfiai-brand:hover .morfiai-brand-symbol{transform:none}}
+@keyframes morfiai-spectrum{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+
+#lovable-badge{display:none!important}
+.nex-dragon-video-section>.grid-bg{pointer-events:auto!important;width:49%;padding-top:120px!important;padding-bottom:70px!important;justify-content:center;gap:0}
+.morfiai-hero-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(42px,5.3vw,84px)!important;line-height:1.08;letter-spacing:-.025em;margin:0 0 30px;max-width:none;cursor:default;overflow:visible}
+.morfiai-title-line{display:block;white-space:nowrap}
+.morfiai-title-char{display:inline-block;will-change:transform;transition:transform .18s ease-out,filter .18s ease-out}
+.morfiai-title-accent{font-style:italic;color:#f7bc40}
+.morfiai-title-accent .morfiai-title-char{background:linear-gradient(90deg,#e92be9 0%,#ff7780 24%,#ffe000 48%,#ff8f6b 74%,#e92be9 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.morfiai-hero-description{font-size:clamp(14px,1.25vw,18px);line-height:1.75;max-width:400px!important;color:#c0bbc8!important;margin-bottom:30px!important}
+@media(min-width:1280px){.nex-dragon-video-section>.grid-bg{padding-left:6vw!important}}
+@media(max-width:640px){.nex-dragon-video-section>.grid-bg{width:100%;padding-top:18rem!important;padding-bottom:2rem!important;justify-content:flex-end}.morfiai-hero-title{font-size:clamp(37px,8.8vw,56px)!important;margin-bottom:20px}.morfiai-hero-description{max-width:32ch!important}.morfiai-title-char{will-change:auto}}
+@media(prefers-reduced-motion:reduce){.morfiai-title-char{transition:none!important;transform:none!important}}
+
+/* One continuous pink-to-gold gradient across the complete line, sliding like .text-neon-gradient.
+   The tile is 2x the line width (set from hero-copy.js) and starts/ends with the same color,
+   so the 6s loop is seamless while the gradient keeps moving through the letters. */
+.morfiai-title-accent{width:max-content;max-width:100%}
+.morfiai-title-accent .morfiai-title-char{background-image:linear-gradient(90deg,#e92be9 0%,#ff7780 24%,#ffe000 48%,#ff8f6b 74%,#e92be9 100%);background-repeat:repeat}
+
+/* Keep the complete dragon below the fixed header, including the tallest horns. */
+.nex-dragon-video-stage{top:88px!important;bottom:12px!important;height:auto!important}
+.nex-dragon-video-layer{transform:none!important;transition:none!important}
+.nex-dragon-video{object-position:center center;mask-image:radial-gradient(ellipse 85% 90% at center,#000 75%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 85% 90% at center,#000 75%,transparent 100%)}
+@media(max-width:640px){.nex-dragon-video-stage{top:78px!important;bottom:12px!important}.nex-dragon-video{object-position:center center}}
+.nex-dragon-video-stage{bottom:auto!important;height:calc(100svh - 100px)!important}@media(max-width:640px){.nex-dragon-video-stage{height:calc(100svh - 90px)!important}}
+
+.morfiai-living-word{position:fixed;inset:0;z-index:45;pointer-events:none}
+#engine h2 em[data-living-word]{display:inline-block;transition:opacity .2s ease;transform:none!important}
+.morfiai-guide-target{outline:2px solid #00efff;outline-offset:7px;animation:morfiai-access-pulse 1.7s ease-in-out infinite}
+@keyframes morfiai-access-pulse{0%,100%{box-shadow:0 0 8px #00efff55}50%{box-shadow:0 0 25px #f52fe399}}
+@media(prefers-reduced-motion:reduce){.morfiai-living-word{display:none}.morfiai-guide-target{animation:none}}
+
+/* Fine, unobtrusive NexVerse-style multiplayer-color stickman arena. */
+.morfiai-arena{z-index:44}
+.morfiai-arena-pointer,.morfiai-arena-pointer #engine,.morfiai-arena-pointer #kontakt{cursor:none!important}
+.morfiai-arena-pointer div.pointer-events-none.fixed.left-0.top-0{visibility:hidden!important}
+.morfiai-battle-ui{position:fixed;right:14px;bottom:14px;z-index:46;display:flex;align-items:center;gap:10px;padding:7px 10px;border:1px solid #25515a;background:#05090bdb;color:#87b4bb;font:10px 'JetBrains Mono',monospace;letter-spacing:.04em;backdrop-filter:blur(6px)}
+.morfiai-battle-ui[hidden]{display:none}
+.morfiai-battle-ui button{background:transparent;border:1px solid #28505a;padding:4px 7px;color:#a9e9ee;font:inherit;cursor:pointer}
+.morfiai-battle-ui button:hover{border-color:#49e2ff;color:#fff}
+@media(prefers-reduced-motion:reduce){.morfiai-battle-ui,.morfiai-arena{display:none!important}}
+
+.morfiai-game-on,.morfiai-game-on *{user-select:none!important;-webkit-user-select:none!important}
+.morfiai-game-on input,.morfiai-game-on textarea,.morfiai-game-on [contenteditable="true"]{user-select:text!important;-webkit-user-select:text!important}
+.morfiai-arena-pointer,.morfiai-arena-pointer *{cursor:none!important}
+.morfiai-arena{z-index:110}
+.morfiai-battle-ui{z-index:111}
+#engine>div:first-child{min-height:400px}@media(min-width:1024px){#engine>div:first-child{min-height:520px}}
+
+/* „vytvořit" in „Připraveni vytvořit další hit?" — bright neon fill so it reads well,
+   animated with the same neon-shift as the CTA buttons. */
+#kontakt h2 em.text-neon-gradient{color:#120c1c;-webkit-text-fill-color:#120c1c;background:var(--gradient-neon)!important;background-size:200%!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;padding:2px 14px 6px;border-radius:4px;box-shadow:0 0 26px -2px rgba(233,43,233,.55)}
