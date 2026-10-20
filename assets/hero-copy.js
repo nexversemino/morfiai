@@ -1,6 +1,5 @@
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
 function updateHero(){
- document.getElementById('lovable-badge')?.remove();
  const hero=document.querySelector('.nex-dragon-video-section');if(!hero)return;
  const heading=hero.querySelector('h1');if(!heading||heading.dataset.morfiaiCopy)return;
  heading.dataset.morfiaiCopy='true';heading.className='morfiai-hero-title';heading.setAttribute('aria-label','Tvoř světy. Dej jim život.');heading.replaceChildren();

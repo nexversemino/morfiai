@@ -14,39 +14,43 @@
 .nex-dragon-video-stage{position:absolute!important;inset:0!important;width:100%;height:100%;min-height:0!important;z-index:1;pointer-events:none;overflow:visible!important}
 .nex-dragon-video-layer{position:absolute!important;inset:0!important}
 .nex-dragon-video{width:100%;height:100%;object-fit:contain;object-position:center;mask-image:radial-gradient(ellipse 75% 80% at center,#000 65%,transparent 100%);-webkit-mask-image:radial-gradient(ellipse 75% 80% at center,#000 65%,transparent 100%)}
+.nex-dragon-video-stage>[data-bounce]{left:auto!important;right:2rem;bottom:2rem;z-index:3}
+@media(max-width:1023px){.nex-dragon-video-section>.grid-bg{width:52%;padding-top:7rem;padding-bottom:2rem}.nex-dragon-video-section h1{font-size:clamp(2.8rem,6.5vw,5rem)}.nex-dragon-video-section>.grid-bg p{max-width:25rem}}
+@media(max-width:640px){.nex-dragon-video-section>.grid-bg{width:100%;justify-content:flex-end;padding-top:18rem;background-image:linear-gradient(0deg,rgba(0,0,0,.9),rgba(0,0,0,.35) 60%,transparent)}.nex-dragon-video{object-position:center 15%}.nex-dragon-video-stage>[data-bounce]{display:none}}
+.nex-dragon-video-section>.grid-bg{background-size:100% 100%!important;background-repeat:no-repeat!important}
 
-/* Brand: MORFIAI logo + glowing wordmark in one row (restored) */
-.morfiai-brand{display:inline-flex;align-items:center;gap:14px;text-decoration:none}
-.morfiai-brand-symbol{display:block;width:68px;height:68px;flex:none}
-.morfiai-brand-word{font-size:26px;font-weight:500;letter-spacing:.22em;color:transparent;background:linear-gradient(90deg,#37f6ff 0%,#b95cff 25%,#ff2fd0 50%,#ff9f45 75%,#ffe000 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:morfiai-spectrum 6s linear infinite}
-.nex-dragon-video-section>header{position:absolute!important;top:0;left:0;right:0;z-index:30}
-.nex-dragon-video-section>header .grid-bg{background-image:none!important}
-.nex-dragon-video-section .grid-bg{display:flex;flex-direction:column}
-.nex-dragon-video-section .grid-bg h1{margin-bottom:28px}
-.nex-dragon-video-section .grid-bg .morfiai-hero-description{max-width:44rem!important}
-@media(max-width:1024px){.morfiai-brand-symbol{width:56px;height:56px}.morfiai-brand-word{font-size:22px}}
+/* Morfiai: matching animated winged monogram and a larger wordmark. */
+.morfiai-brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0;padding:0 6px 0 0;outline-offset:5px}
+.morfiai-brand-symbol{width:68px;height:68px;display:block;transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.morfiai-brand:hover .morfiai-brand-symbol{transform:perspective(250px) rotateY(-16deg) rotateZ(-5deg) scale(1.08)}
+.morfiai-brand-word{font-family:'JetBrains Mono',monospace;font-size:clamp(24px,2.8vw,38px);font-weight:700;letter-spacing:.14em;line-height:1.15}
+header>div{padding-top:8px!important;padding-bottom:8px!important}
+@keyframes morfiai-spectrum{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 @media(max-width:640px){.morfiai-brand{gap:6px}.morfiai-brand-symbol{width:50px;height:50px}.morfiai-brand-word{font-size:23px;letter-spacing:.09em}header>div{padding-left:14px!important;padding-right:14px!important}}
 @media(prefers-reduced-motion:reduce){.morfiai-brand-word{animation:none}.morfiai-brand-symbol{transition:none}.morfiai-brand:hover .morfiai-brand-symbol{transform:none}}
-@keyframes morfiai-spectrum{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 
 
-#lovable-badge{display:none!important}
 .nex-dragon-video-section>.grid-bg{pointer-events:auto!important;width:49%;padding-top:120px!important;padding-bottom:70px!important;justify-content:center;gap:0}
 .morfiai-hero-title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;font-size:clamp(42px,5.3vw,84px)!important;line-height:1.08;letter-spacing:-.025em;margin:0 0 30px;max-width:none;cursor:default;overflow:visible}
 .morfiai-title-line{display:block;white-space:nowrap}
 .morfiai-title-char{display:inline-block;will-change:transform;transition:transform .18s ease-out,filter .18s ease-out}
-.morfiai-title-accent{font-style:italic;color:#f7bc40}
-.morfiai-title-accent .morfiai-title-char{background:linear-gradient(90deg,#e92be9 0%,#ff7780 24%,#ffe000 48%,#ff8f6b 74%,#e92be9 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.morfiai-hero-description{font-size:clamp(14px,1.25vw,18px);line-height:1.75;max-width:400px!important;color:#c0bbc8!important;margin-bottom:30px!important}
+.morfiai-title-accent{font-style:italic;width:max-content;max-width:100%}
+/* Line-wide neon gradient painted per character (hero-copy.js sets each char's
+   backgroundSize to 2x line width and slides backgroundPosition) — starts and ends
+   on the same color, so the 6s slide is seamless. Same palette as the site's
+   --gradient-neon so it matches the header word and „vytvořit“. */
+.morfiai-title-accent .morfiai-title-char{background-image:linear-gradient(90deg,var(--neon-cyan),var(--neon-violet) 24%,var(--neon-pink) 48%,var(--neon-orange) 74%,var(--neon-cyan) 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-repeat:repeat}
+
+/* CTA „Začít tvořit“ (hero): same neon-shift mechanics, but a deep saturated palette
+   so it never fades into pale pastel phases. */
+.nex-dragon-video-section .bg-neon-gradient{background-image:linear-gradient(90deg,#00e5ff,#8b2dff,#ff1fd0,#ff8a00,#7dff00,#00e5ff)!important;background-size:300% 100%!important;animation:6s linear infinite neon-shift}
+.morfiai-hero-description{font-size:clamp(14px,1.25vw,18px);line-height:1.75;max-width:390px!important;color:#c0bbc8!important;margin-bottom:30px!important}
 @media(min-width:1280px){.nex-dragon-video-section>.grid-bg{padding-left:6vw!important}}
 @media(max-width:640px){.nex-dragon-video-section>.grid-bg{width:100%;padding-top:18rem!important;padding-bottom:2rem!important;justify-content:flex-end}.morfiai-hero-title{font-size:clamp(37px,8.8vw,56px)!important;margin-bottom:20px}.morfiai-hero-description{max-width:32ch!important}.morfiai-title-char{will-change:auto}}
 @media(prefers-reduced-motion:reduce){.morfiai-title-char{transition:none!important;transform:none!important}}
 
-/* One continuous pink-to-gold gradient across the complete line, sliding like .text-neon-gradient.
-   The tile is 2x the line width (set from hero-copy.js) and starts/ends with the same color,
-   so the 6s loop is seamless while the gradient keeps moving through the letters. */
-.morfiai-title-accent{width:max-content;max-width:100%}
-.morfiai-title-accent .morfiai-title-char{background-image:linear-gradient(90deg,#e92be9 0%,#ff7780 24%,#ffe000 48%,#ff8f6b 74%,#e92be9 100%);background-repeat:repeat}
+/* One continuous neon gradient across the complete line (handled by the parent via
+   background-clip:text + the site's neon-shift animation — see above). */
 
 /* Keep the complete dragon below the fixed header, including the tallest horns. */
 .nex-dragon-video-stage{top:88px!important;bottom:12px!important;height:auto!important}
@@ -78,6 +82,7 @@
 .morfiai-battle-ui{z-index:111}
 #engine>div:first-child{min-height:400px}@media(min-width:1024px){#engine>div:first-child{min-height:520px}}
 
-/* „vytvořit" in „Připraveni vytvořit další hit?" — bright neon fill so it reads well,
-   animated with the same neon-shift as the CTA buttons. */
-#kontakt h2 em.text-neon-gradient{color:#120c1c;-webkit-text-fill-color:#120c1c;background:var(--gradient-neon)!important;background-size:200%!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;padding:2px 14px 6px;border-radius:4px;box-shadow:0 0 26px -2px rgba(233,43,233,.55)}
+/* Keep the video on its own GPU layer: prevents tiled compositor seams (vertical slice
+   artifacts) showing over the dragon during hardware AV1 decode. */
+.nex-dragon-video{will-change:transform;transform:translateZ(0)}
+.nex-dragon-video-layer,.nex-dragon-video-stage{transform:translateZ(0)}
